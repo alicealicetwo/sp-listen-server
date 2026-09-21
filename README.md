@@ -1,5 +1,7 @@
 # sp_listen — a listen server for SUPER PEOPLE (BravoHotel)
 
+https://discord.com/invite/superpeopleofficial
+
 SUPER PEOPLE (internal name **BravoHotel**) is a 2021 Unreal Engine 4.25 battle royale whose official servers are gone. No dedicated-server binary was ever shipped — only the client. `sp_listen.dll` is a patch that is injected into the **shipping client** (`BravoHotelClient-Win64-Shipping.exe`, build `1.3.0.473797`) and turns it into a **listen server**: one player hosts, everybody else joins.
 
 This repository contains the patch source, the build and host scripts, and every note we have on how the game's netcode behaves under the patch. It is meant to be picked up by other people — see [CONTRIBUTING.md](CONTRIBUTING.md) and [NOTES.md](NOTES.md).
