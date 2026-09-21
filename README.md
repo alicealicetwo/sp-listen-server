@@ -8,6 +8,8 @@ This repository contains the patch source, the build and host scripts, and every
 
 > Status (September 2026, v174): a full round with several players works end to end — join, aircraft, loot, weapons, reload, attachments, blue zone, results/gold. Known open problems are listed in [NOTES.md § Open issues](NOTES.md#open-issues). Nothing here touches the game files on disk; everything is done in memory at runtime.
 
+> dxgi.dll DLL Injector by [@aeyth8](https://github.com/Aeyth8)
+
 ## How it works (one paragraph)
 
 The client exe has all server code compiled in (it is a UE4 client target, so `UWorld::GetNetMode` is folded to *client-or-standalone*). The DLL redirects the map load into its own `Listen()` (creates a `UNetDriver`, calls `InitListen`), then hides the driver from the game logic (`World->NetDriver = null`, the "standalone mask") and shows it again only inside the engine paths that need it (connection accept, control messages, `TickFlush`, dormancy). Around that core sit ~40 targeted hooks: net-mode answers for remote players' actors, RPC callspace, dormancy, replication-graph relevance, blue-zone relevance, loot spawning around remote players, weapon state pushes, a gold/result ledger, a loadout injector and a small command-file interface for an admin panel. Every hook is a runtime patch on verified RVAs of build 473797; nothing is written to disk.
