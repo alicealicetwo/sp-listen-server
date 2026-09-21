@@ -1,0 +1,21 @@
+# logs (contain player names / UIDs)
+*.log
+# per-player data written by the backend / admin panel
+loadouts.txt
+sp_listen_cmd.txt
+host-token.txt
+config.json
+.env
+# build output
+*.dll
+*.obj
+*.exp
+*.lib
+*.pdb
+# game files / archives
+*.exe
+*.pak
+*.zip
+# editor noise
+.vs/
+*.swp
