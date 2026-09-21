@@ -8,7 +8,7 @@ This repository contains the patch source, the build and host scripts, and every
 
 > Status (September 2026, v174): a full round with several players works end to end — join, aircraft, loot, weapons, reload, attachments, blue zone, results/gold. Known open problems are listed in [NOTES.md § Open issues](NOTES.md#open-issues). Nothing here touches the game files on disk; everything is done in memory at runtime.
 
-> dxgi.dll DLL Injector by [@aeyth8](https://github.com/Aeyth8)
+> dxgi.dll DLL Injector by [@aeyth8](https://github.com/Aeyth8) (https://github.com/Aeyth8/UE4-Librarian)
 
 ## How it works (one paragraph)
 
