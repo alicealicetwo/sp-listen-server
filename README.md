@@ -23,6 +23,14 @@ The client exe has all server code compiled in (it is a UE4 client target, so `U
 
 ## Building
 
+### GitHub Actions
+
+The **Build DLL** workflow builds `src/sp_listen.cpp` with MSVC for Windows x64. Start it manually from **Actions > Build DLL > Run workflow**; it does not run on pushes or pull requests.
+
+After a successful run, download the **sp_listen-windows-x64** artifact from the run's summary page and extract it into the game's `Binaries\Win64` folder while the game is closed. The package contains `sp_listen.dll`, the `dxgi.dll` injector, `DList.ini`, and the host scripts (`host_fpp.bat` and `host_tpp.bat`), all at the top level. The build does not require game files, and no game assets are included in the package.
+
+### Local Build
+
 1. Copy `src/sp_listen.cpp` and `tools/build.bat` next to each other (the game folder is fine).
 2. Open the **x64 Native Tools Command Prompt for VS**, `cd` into that folder and run `build.bat`. It compiles with `cl /LD /O2 /EHsc /std:c++17` and links `psapi.lib`.
 3. `build.bat` copies `sp_listen.dll` into the game folder given by the `SP_GAMEDIR` environment variable, or leaves it next to the source if that is not set. The game must be closed while building — a running game keeps the DLL locked.
